@@ -1,30 +1,9 @@
-# import pandas as pd
-# import numpy as np
 import matplotlib.pyplot as plt
 from yahoo_fin.stock_info import get_data
 import datetime
 from dateutil.relativedelta import relativedelta
 
-# from bollinger_bands import get_BB, get_SMA
 from gather_data import gather_data
-# from keltner_channel import get_ATR, get_EMA, get_KC
-# from momentum import get_momentum
-
-## TRIAL GRAPH ##
-
-# From custom CSV
-# df = pd.read_csv('AMD.csv')
-# print(df.head())
-# closing_prices = df['Close']
-# high_prices = df['High']
-# low_prices = df['Low']
-# SMA = get_SMA(closing_prices,20)
-# EMA = get_EMA(closing_prices,20)
-# ATR = get_ATR(high_prices,low_prices,closing_prices,14)
-# upper_KC,lower_KC = get_KC(EMA,1.5,ATR)
-# bollinger_up,bollinger_down = get_BB(closing_prices,20,14,1.5)
-# MA = get_SMA(closing_prices,14)
-# momentum = get_momentum(closing_prices,14)
 
 # From function import
 today = datetime.date.today()

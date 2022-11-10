@@ -20,7 +20,3 @@ def gather_data(data):
     df['MA'] = get_SMA(closing_prices,14)
     df['momentum'] = get_momentum(closing_prices,14)
     return df
-
-# ## TRIAL DATA ##
-# company = gather_data('AMD.csv')
-# print(company.tail())
