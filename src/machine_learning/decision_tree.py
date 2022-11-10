@@ -2,7 +2,7 @@ import datetime
 from dateutil.relativedelta import relativedelta
 
 from yahoo_fin.stock_info import get_data
-from src.data.gather_data import gather_data
+from gather_data import gather_data
 
 today = datetime.date.today()
 last_year = (datetime.datetime.now()-relativedelta(years=1))
