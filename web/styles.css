@@ -1,0 +1,55 @@
+#ticker1 {
+    width: 100%;
+    overflow: hidden;
+}
+
+#ticker1 ul {
+    position: absolute;
+    list-style: none;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    animation: ticker 10s linear infinite;
+}
+
+#ticker1 li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+#ticker2 {
+    width: 100%;
+    overflow: hidden;
+}
+
+#ticker2 ul {
+    position: absolute;
+    list-style: none;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    animation: ticker-reverse 10s linear infinite;
+}
+
+#ticker2 li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes ticker-reverse {
+    0% {
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
