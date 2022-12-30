@@ -19,7 +19,7 @@ sp500_threes = []
 sp500_fours = []
 
 # API Endpoint to update NASDAQ100 Screener Results
-@stock_routes.get('/checkNasdaq100')
+@stock_routes.post('/checkNasdaq100')
 def update_nasdaq100():
     global nasdaq100_calls
     global nasdaq100_puts
@@ -39,10 +39,10 @@ def get_nasdaq100_info():
     global nasdaq100_twos
     global nasdaq100_threes
     global nasdaq100_fours
-    return {'Calls': nasdaq100_calls, 'Puts': nasdaq100_puts, 'One-Day Streak': nasdaq100_ones, 'Two-Days Streak': nasdaq100_twos, 'Three-Days Streak': nasdaq100_threes, 'Four-Day Streak': nasdaq100_fours}
+    return {'Calls': nasdaq100_calls, 'Puts': nasdaq100_puts, 'OneDayStreak': nasdaq100_ones, 'TwoDaysStreak': nasdaq100_twos, 'ThreeDaysStreak': nasdaq100_threes, 'FourDaysStreak': nasdaq100_fours}
 
 # API Endpoint to update S&P500 Screener Results
-@stock_routes.get('/checkSp500')
+@stock_routes.post('/checkSp500')
 def update_sp500():
     global sp500_calls
     global sp500_puts
@@ -62,4 +62,4 @@ def get_sp500_info():
     global sp500_twos
     global sp500_threes
     global sp500_fours
-    return {'Calls': sp500_calls, 'Puts': sp500_puts, 'One-Day Streak': sp500_ones, 'Two-Days Streak': sp500_twos, 'Three-Days Streak': sp500_threes, 'Four-Day Streak': sp500_fours}
+    return {'Calls': sp500_calls, 'Puts': sp500_puts, 'OneDayStreak': sp500_ones, 'TwoDaysStreak': sp500_twos, 'ThreeDaysStreak': sp500_threes, 'FourDaysStreak': sp500_fours}
