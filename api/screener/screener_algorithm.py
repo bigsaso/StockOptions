@@ -1,7 +1,10 @@
 def screener(company):
     calls = ''
     puts = ''
-    fail = ''
+    one_day_streak = ''
+    two_days_streak = ''
+    three_days_streak = ''
+    four_days_streak = ''
     days_to_check = [-1,-2,-3,-4,-5]
     current_status = ''
     for day in days_to_check:
@@ -21,9 +24,21 @@ def screener(company):
             puts = ticker
             current_status = 'put'
         else:
-            if day !=-1:
+            if day ==-5:
                 calls = ''
                 puts = ''
-                fail = f'{ticker} failed {current_status} {(day)*(-1)-1} day(s) ago'
+                four_days_streak = ticker + ' - ' + current_status
+            elif day ==-4:
+                calls = ''
+                puts = ''
+                three_days_streak = ticker + ' - ' + current_status
+            elif day ==-3:
+                calls = ''
+                puts = ''
+                two_days_streak = ticker + ' - ' + current_status
+            elif day ==-2:
+                calls = ''
+                puts = ''
+                one_day_streak = ticker + ' - ' + current_status
             break
-    return calls,puts,fail
+    return calls,puts,one_day_streak,two_days_streak,three_days_streak,four_days_streak

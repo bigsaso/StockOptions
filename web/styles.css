@@ -1,9 +1,17 @@
+#body {
+    resize: none;
+    height: 100px;
+    width: 350px;
+}
+
 #ticker1 {
     width: 100%;
     overflow: hidden;
 }
 
 #ticker1 ul {
+    height: 3vh;
+    background-color: #4d4d4d;
     position: absolute;
     list-style: none;
     white-space: nowrap;
@@ -14,7 +22,8 @@
 
 #ticker1 li {
     display: inline-block;
-    padding: 0 20px;
+    padding: 5px 20px;
+    color: white;
 }
 
 #ticker2 {
@@ -23,6 +32,8 @@
 }
 
 #ticker2 ul {
+    height: 3vh;
+    background-color: #4d4d4d;
     position: absolute;
     list-style: none;
     white-space: nowrap;
@@ -33,7 +44,8 @@
 
 #ticker2 li {
     display: inline-block;
-    padding: 0 20px;
+    padding: 5px 20px;
+    color: white;
 }
 
 @keyframes ticker {

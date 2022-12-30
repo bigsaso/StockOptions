@@ -1,14 +1,13 @@
 import matplotlib.pyplot as plt
 from yahoo_fin.stock_info import get_data
-import datetime
+import datetime as dt
 from dateutil.relativedelta import relativedelta
 
-from gather_data import gather_data
+from functions.gather_data import gather_data
 
-# From function import
-today = datetime.date.today()
-last_year = (datetime.datetime.now()-relativedelta(years=1))
-ticker = 'BIIB'
+today = dt.date.today()
+last_year = (dt.datetime.now()-relativedelta(years=1))
+ticker = 'CFG'
 data = get_data(ticker=ticker, start_date = last_year, end_date = None, index_as_date = True, interval = '1d')
 df = gather_data(data)
 plt.title(ticker + ' Graph')
