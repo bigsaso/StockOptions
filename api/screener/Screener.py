@@ -16,6 +16,8 @@ twos = []
 threes = []
 fours = []
 
+results = []
+
 # Check an index
 def check_index(function):
     index = function()
@@ -23,55 +25,25 @@ def check_index(function):
     for ticker in index:
         data = get_data(ticker, start_date = last_year, end_date = today, index_as_date = True, interval = '1d')
         company = gather_data(data)
-        company_calls,company_puts,company_ones,company_twos,company_threes,company_fours = screener(company)
-        if company_calls!='':
-            calls.append(company_calls)
-        if company_puts!='':
-            puts.append(company_puts)
-        if company_ones!='':
-            ones.append(company_ones)
-        if company_twos!='':
-            twos.append(company_twos)
-        if company_threes!='':
-            threes.append(company_threes)
-        if company_fours!='':
-            fours.append(company_fours)
-    return calls,puts,ones,twos,threes,fours
+        company_ticker,company_status,company_streak,scan_date = screener(company)
+        if company_status:
+            results.append({"Ticker": company_ticker, "Status": company_status, "Streak": company_streak, "Scan Date": scan_date})
+    return results
 
 
 # Check individual stock
 def check_stock(ticker):
     data = get_data(ticker, start_date = last_year, end_date = today, index_as_date = True, interval = '1d')
     company = gather_data(data)
-    company_calls,company_puts,company_ones,company_twos,company_threes,company_fours = screener(company)
-    if company_calls!='':
-        calls.append(company_calls)
-    if company_puts!='':
-        puts.append(company_puts)
-    if company_ones!='':
-        ones.append(company_ones)
-    if company_twos!='':
-        twos.append(company_twos)
-    if company_threes!='':
-        threes.append(company_threes)
-    if company_fours!='':
-        fours.append(company_fours)
-    return calls,puts,ones,twos,threes,fours
+    company_ticker,company_status,company_streak,scan_date = screener(company)
+    if company_status:
+        results.append({"Ticker": company_ticker, "Status": company_status, "Streak": company_streak, "Scan Date": scan_date})
+    return results
 
 # Check custom stock
 def check_custom_stock(csv):
     company = gather_data(csv)
-    company_calls,company_puts,company_ones,company_twos,company_threes,company_fours = screener(company)
-    if company_calls!='':
-        calls.append(company_calls)
-    if company_puts!='':
-        puts.append(company_puts)
-    if company_ones!='':
-        ones.append(company_ones)
-    if company_twos!='':
-        twos.append(company_twos)
-    if company_threes!='':
-        threes.append(company_threes)
-    if company_fours!='':
-        fours.append(company_fours)
-    return calls,puts,ones,twos,threes,fours
+    company_ticker,company_status,company_streak,scan_date = screener(company)
+    if company_status:
+        results.append({"Ticker": company_ticker, "Status": company_status, "Streak": company_streak, "Scan Date": scan_date})
+    return results

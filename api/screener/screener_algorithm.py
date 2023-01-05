@@ -1,10 +1,8 @@
+from datetime import datetime as dt
+
 def screener(company):
-    calls = ''
-    puts = ''
-    one_day_streak = ''
-    two_days_streak = ''
-    three_days_streak = ''
-    four_days_streak = ''
+    time = dt.now().strftime('%Y/%m/%d')
+    streak = ''
     days_to_check = [-1,-2,-3,-4,-5]
     current_status = ''
     for day in days_to_check:
@@ -17,28 +15,20 @@ def screener(company):
         today_lower_bb = today['bollinger_down']
         today_ma = today['MA']
         today_momentum = today['momentum']
-        if(today_upper_bb < today_upper_kc and today_lower_bb > today_lower_kc and today_price > today_ma and today_momentum > 0 and current_status!='put'):
-            calls = ticker
-            current_status = 'call'
-        elif(today_upper_bb < today_upper_kc and today_lower_bb > today_lower_kc and today_price < today_ma and today_momentum < 0 and current_status!='call'):
-            puts = ticker
-            current_status = 'put'
+        if(today_upper_bb < today_upper_kc and today_lower_bb > today_lower_kc and today_price > today_ma and today_momentum > 0 and current_status!='Put'):
+            current_status = 'Call'
+            streak = '5 Days'
+        elif(today_upper_bb < today_upper_kc and today_lower_bb > today_lower_kc and today_price < today_ma and today_momentum < 0 and current_status!='Call'):
+            current_status = 'Put'
+            streak = '5 Days'
         else:
             if day ==-5:
-                calls = ''
-                puts = ''
-                four_days_streak = ticker + ' - ' + current_status
+                streak = '4 Days'
             elif day ==-4:
-                calls = ''
-                puts = ''
-                three_days_streak = ticker + ' - ' + current_status
+                streak = '3 Days'
             elif day ==-3:
-                calls = ''
-                puts = ''
-                two_days_streak = ticker + ' - ' + current_status
+                streak = '2 Days'
             elif day ==-2:
-                calls = ''
-                puts = ''
-                one_day_streak = ticker + ' - ' + current_status
+                streak = '1 Day'
             break
-    return calls,puts,one_day_streak,two_days_streak,three_days_streak,four_days_streak
+    return ticker,current_status,streak,time
