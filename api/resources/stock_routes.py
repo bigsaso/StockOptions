@@ -3,20 +3,9 @@ from functions.checks import check_nasdaq100, check_sp500
 
 stock_routes = Blueprint('server_routes', __name__)
 
-#Initialize temp memory -> Will transfer to DB
-nasdaq100_calls = []
-nasdaq100_puts = []
-nasdaq100_ones = []
-nasdaq100_twos = []
-nasdaq100_threes = []
-nasdaq100_fours = []
-
-sp500_calls = []
-sp500_puts = []
-sp500_ones = []
-sp500_twos = []
-sp500_threes = []
-sp500_fours = []
+# Initialize temp memory -> Will transfer to DB
+nasdaq100_calls,nasdaq100_puts,nasdaq100_ones,nasdaq100_twos,nasdaq100_threes,nasdaq100_fours = ([] for i in range(6))
+sp500_calls,sp500_puts,sp500_ones,sp500_twos,sp500_threes,sp500_fours = ([] for i in range(6))
 
 # API Endpoint to update NASDAQ100 Screener Results
 @stock_routes.post('/checkNasdaq100')
@@ -27,6 +16,7 @@ def update_nasdaq100():
     global nasdaq100_twos
     global nasdaq100_threes
     global nasdaq100_fours
+    nasdaq100_calls,nasdaq100_puts,nasdaq100_ones,nasdaq100_twos,nasdaq100_threes,nasdaq100_fours = ([] for i in range(6))
     nasdaq100_calls,nasdaq100_puts,nasdaq100_ones,nasdaq100_twos,nasdaq100_threes,nasdaq100_fours = check_nasdaq100()
     return 'PASS'
 
@@ -50,6 +40,7 @@ def update_sp500():
     global sp500_twos
     global sp500_threes
     global sp500_fours
+    sp500_calls,sp500_puts,sp500_ones,sp500_twos,sp500_threes,sp500_fours = ([] for i in range(6))
     sp500_calls,sp500_puts,sp500_ones,sp500_twos,sp500_threes,sp500_fours = check_sp500()
     return 'PASS'
 
