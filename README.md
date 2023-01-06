@@ -4,3 +4,7 @@ To initialize:<br/>
 $ python3 -m venv venv <br/>
 $ source venv/bin/activate <br/>
 $ pip install -r requirements.txt <br/>
+
+# To run as a website:<br/>
+$ python3 app.py<br/>
+* Open index.html in the browser
