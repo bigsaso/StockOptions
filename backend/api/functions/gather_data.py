@@ -4,6 +4,7 @@ import requests
 from indicators.bollinger_bands import get_BB, get_SMA
 from indicators.keltner_channel import get_ATR, get_EMA, get_KC
 from indicators.momentum import get_momentum
+from indicators.rsi import get_rsi
 
 def gather_data(data):
     if not isinstance(data,pd.core.frame.DataFrame):
@@ -20,6 +21,7 @@ def gather_data(data):
     df['bollinger_up'],df['bollinger_down'] = get_BB(closing_prices,20,14,1.5)
     df['MA'] = get_SMA(closing_prices,14)
     df['momentum'] = get_momentum(closing_prices,14)
+    df['RSI'] = get_rsi(closing_prices)
     return df
 
 def get_nasdaq100():

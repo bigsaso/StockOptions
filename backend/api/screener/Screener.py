@@ -29,7 +29,8 @@ def check_index(function):
         company_ticker,company_status,company_streak,scan_date = screener(company)
         if company_status:
             sentiment,lt,warnings = analyze_sentiment(company_ticker)
-            results.append({"Ticker": company_ticker, "Status": company_status, "Streak": company_streak, "Scan Date": scan_date, "ST Sentiment": sentiment, "LT Analysis": lt, "Warnings": warnings})
+            # rsi = round(company.iloc[-1]['RSI'],2)
+            results.append({"Ticker": company_ticker, "Status": company_status, "Streak": company_streak, "Scan Date": scan_date, "ST Sentiment": sentiment, "LT Analysis": lt, "Warnings": warnings})#, "RSI": rsi
     return results
 
 

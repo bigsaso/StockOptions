@@ -7,6 +7,7 @@ var table = new Tabulator("#options-table", {
         {title:"Ticker",headerHozAlign:"center", field:"Ticker", hozAlign: 'center', width:200},
         {title:"Status",headerHozAlign:"center", field:"Status", hozAlign: 'center', formatter: CallPutFormat, width:100},
         {title:"Streak",headerHozAlign:"center", field:"Streak", hozAlign: 'center', width:100},
+        // {title:"RSI",headerHozAlign:"center", field:"RSI", width:80},
         {title:"ST Sentiment",headerHozAlign:"center", field:"ST Sentiment", hozAlign: 'center', formatter: SentimentFormat, width:150},
         {title:"LT Analysis",headerHozAlign:"center", field:"LT Analysis"},
         {title:"Warnings",headerHozAlign:"center", field:"Warnings"},
@@ -14,15 +15,17 @@ var table = new Tabulator("#options-table", {
     ],
 });
 
-//trigger AJAX load on "Load Data via AJAX" button click
+//Load data into table
 document.getElementById("getNASDAQ").addEventListener("click", function(){
     table.setData("http://localhost:5000/getNasdaq100");
 });
 
-//trigger check
-document.getElementById("checkNASDAQ").addEventListener("click", function(){
+//Update data
+let checkButton = document.getElementById("checkNASDAQ")
+checkButton.addEventListener("click", function(){
+    checkButton.innerHTML = 'Updating...';
     fetch("http://localhost:5000/checkNasdaq100", {method: 'POST'})
-    .then(response => console.log(response))
+    .then(checkButton.innerHTML = 'Update tickers')
     .catch(error => console.log(error))
 });
 
