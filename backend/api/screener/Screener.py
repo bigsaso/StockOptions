@@ -6,25 +6,16 @@ from functions.gather_data import gather_data
 from screener.screener_algorithm import screener
 from indicators.sentiment import analyze_sentiment
 
-today = dt.date.today()
+# today = dt.date.today()
 last_year = (dt.datetime.now()-relativedelta(years=1))
-
-calls = []
-puts = []
-fails = []
-ones = []
-twos = []
-threes = []
-fours = []
 
 results = []
 
 # Check an index
 def check_index(function):
     index = function()
-    index_hist = {}
     for ticker in index:
-        data = get_data(ticker, start_date = last_year, end_date = today, index_as_date = True, interval = '1d')
+        data = get_data(ticker, start_date = last_year, index_as_date = True, interval = '1d')#, end_date = today
         company = gather_data(data)
         company_ticker,company_status,company_streak,scan_date = screener(company)
         if company_status:
@@ -36,7 +27,7 @@ def check_index(function):
 
 # Check individual stock
 def check_stock(ticker):
-    data = get_data(ticker, start_date = last_year, end_date = today, index_as_date = True, interval = '1d')
+    data = get_data(ticker, start_date = last_year, index_as_date = True, interval = '1d')#, end_date = today
     company = gather_data(data)
     company_ticker,company_status,company_streak,scan_date = screener(company)
     if company_status:
