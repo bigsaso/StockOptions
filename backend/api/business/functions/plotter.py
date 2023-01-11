@@ -3,7 +3,7 @@ from yahoo_fin.stock_info import get_data
 import datetime as dt
 from dateutil.relativedelta import relativedelta
 
-from functions.gather_data import gather_data
+from business.functions.gather_data import gather_data
 
 today = dt.date.today()
 last_year = (dt.datetime.now()-relativedelta(years=1))

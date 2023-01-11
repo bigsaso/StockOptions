@@ -1,5 +1,5 @@
 from flask import Blueprint
-from functions.checks import check_nasdaq100, check_sp500
+from business.functions.checks import check_nasdaq100, check_sp500
 
 stock_routes = Blueprint('server_routes', __name__)
 

@@ -2,9 +2,9 @@ import datetime as dt
 from dateutil.relativedelta import relativedelta
 from yahoo_fin.stock_info import get_data, tickers_sp500 as sp500
 
-from functions.gather_data import gather_data
-from screener.screener_algorithm import screener
-from indicators.sentiment import analyze_sentiment
+from business.functions.gather_data import gather_data
+from business.screener.screener_algorithm import screener
+from business.indicators.sentiment import analyze_sentiment
 
 # today = dt.date.today()
 last_year = (dt.datetime.now()-relativedelta(years=1))

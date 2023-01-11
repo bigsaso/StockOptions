@@ -1,10 +1,10 @@
 import pandas as pd
 import requests
 
-from indicators.bollinger_bands import get_BB, get_SMA
-from indicators.keltner_channel import get_ATR, get_EMA, get_KC
-from indicators.momentum import get_momentum
-from indicators.rsi import get_rsi
+from business.indicators.bollinger_bands import get_BB, get_SMA
+from business.indicators.keltner_channel import get_ATR, get_EMA, get_KC
+from business.indicators.momentum import get_momentum
+from business.indicators.rsi import get_rsi
 
 def gather_data(data):
     if not isinstance(data,pd.core.frame.DataFrame):
