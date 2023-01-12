@@ -32,6 +32,9 @@ def analyze_sentiment(ticker):
         sentiment = get_sentiment(tree)
         longterm = get_longterm(tree)
         warnings = get_warnings(tree)
+        print(ticker,sentiment,longterm,warnings)
         return sentiment[0],longterm[0],warnings[0]
     except ConnectionError:
         return "Connection Error","Connection Error","Connection Error"
+    except IndexError:
+        return sentiment[0],"Code Error","Code Error"
