@@ -79,6 +79,13 @@ function SentimentFormat(cell) {
         var red = '#ffa3a3'; 
     }
 
+    // Define orange (Hold) colour for row
+    if (rowIndex % 2 == 0){
+        var orange = '#ffab91';
+    }else{
+        var orange = '#ffbca3'; 
+    }
+
     if (sentiment == '  buy '){
         cellElement.style.backgroundColor = green;
         return 'Buy'
@@ -102,5 +109,12 @@ function SentimentFormat(cell) {
     else if(sentiment == '  Strong   sell '){
         cellElement.style.backgroundColor = red;
         return 'Strong Sell'
+    }
+    else if(sentiment == '  hold '){
+        cellElement.style.backgroundColor = orange;
+        return 'Hold'
+    }
+    else{
+        return sentiment;
     }
 }
