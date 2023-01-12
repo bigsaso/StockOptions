@@ -5,7 +5,6 @@ stock_routes = Blueprint('stock_routes', __name__)
 
 # Initialize temp memory -> Will transfer to DB
 nasdaq100_result = []
-sp500_result = []
 
 # API Endpoint to update NASDAQ100 Screener Results
 @stock_routes.post('/checkNasdaq100')
